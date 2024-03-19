@@ -1,0 +1,1 @@
+simv -l simv.log -assert verbose+success

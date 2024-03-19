@@ -1,0 +1,8 @@
+vcs \
+-l vcs.log \
+-full64 \
+-sverilog \
+-debug_access+all \
+-assert enable_diag \
+-kdb \
+gen.v 
