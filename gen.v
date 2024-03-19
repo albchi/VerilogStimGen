@@ -6,6 +6,7 @@ reg clk;
 reg rst;
 
 typedef enum {RST, INIT, ADD, SUB, MULT, DIV, REM, HLT} CMD_TYPE ;
+reg vld [15:0] = '{0,0,1,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0};
 reg rdy [15:0] = '{0,0,1,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0};
 CMD_TYPE cmd [15:0] = '{ADD,SUB,INIT,MULT,DIV,INIT,ADD,REM,INIT,HLT,DIV,RST,SUB,RST,ADD,REM};
 reg [63:0] opd1 [15:0] = '{0,0,1,0,0,1,0,1,0,0, 0, 0, 0, 0, 0, 0};
