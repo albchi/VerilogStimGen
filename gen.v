@@ -158,4 +158,23 @@ endproperty
 
 a_cmd_done_cmd: assert property (p_cmd_done_cmd);
 
+property p_rst_int;
+   @(posedge clk)
+      $fell(rst)  |-> ##1 (cmd_o == INIT) ##1 (cmd_o == ADD or cmd_o == SUB or cmd_o == MULT or cmd_o == DIV
+ or cmd_o == REM or cmd_o == HLT);
+
+endproperty
+
+a_rst_int: assert property (p_rst_int);
+
+property p_hlt_rst_int;
+   @(posedge clk)
+      (cmd_o == HLT) |-> ##1 (cmd_o == RST) ##1 (cmd_o == INIT) ##1 (cmd_o == ADD or cmd_o == SUB or cmd_o == MULT or 
+cmd_o == DIV or cmd_o == REM );
+
+endproperty
+
+a_hlt_rst_int: assert property (p_hlt_rst_int);
+
+
 endmodule
